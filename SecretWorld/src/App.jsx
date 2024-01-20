@@ -1,12 +1,13 @@
 import { useState } from 'react'
 
 import './App.css'
+import StartScreen from './assets/component/StartScreen'
 
 function App() {
 
   return (
     <>
-      <h1>Secret Word</h1>
+      <StartScreen />
     </>
   )
 }

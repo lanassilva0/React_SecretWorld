@@ -9,3 +9,20 @@ body{
   background-color: #181368;
   color: white;
 }
+
+buttom{
+  background-color: #463680;
+  color: white;
+  padding: 0 30px;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: .4s
+}
+
+buttom:hover{
+  background-color: #140a26;
+}
