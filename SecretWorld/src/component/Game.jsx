@@ -1,19 +1,32 @@
+import {useState, useRef}  from 'react'
 import './Game.css'
 
-const Game = ({verifyLetter}) => {
+const Game = ({verifyLetter,
+  pickedCategory,
+  pickedWord,
+  letters,
+  guessedLetters,
+  wrongLetters,
+  guesses,
+  score,}) => {
   return (
     <div className="game">
       <p className="points">
-        <span>Pontuação: 0 </span>
+        <span>Pontuação: {score} </span>
       </p>
       <h2>Adivinhe a palavra</h2>
       <h3 className="tip">
-        Dica sobre a palavra: <span>Dica...</span>
+        Dica sobre a palavra: <span>{pickedCategory}</span>
       </h3>
-
+      <p>Você ainda tem {guesses} tentativas.</p>
       <div className="wordConteiner">
-        <span className="letter"> A</span>
-        <span className="blankSquare"></span>
+        {letters.map((l, i) => (
+          guessedLetters.includes(l) ? (
+            <span className="letter" key={i}> {l}</span>   
+          ) : (
+            <span className="blankSquare" key={i}></span>
+          )
+        ))}
       </div>
 
       <div className="letterConteiner">
@@ -24,7 +37,9 @@ const Game = ({verifyLetter}) => {
         </form>
         <div className="wrongLetters">
           <p>Letras já utilizadas:</p>
-          <spam>a,</spam>
+          {wrongLetters.map((l, i) => (
+            <span key = {i}> {l}, </span>
+          ))}
         </div>
       </div>
     </div>
