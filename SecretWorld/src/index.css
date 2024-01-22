@@ -10,7 +10,7 @@ body{
   color: white;
 }
 
-buttom{
+button{
   background-color: #463680;
   color: white;
   padding: 0.6em;
@@ -23,6 +23,6 @@ buttom{
   transition: .4s
 }
 
-buttom:hover{
+button:hover{
   background-color: #140a26;
 }

@@ -9,6 +9,18 @@ const Game = ({verifyLetter,
   wrongLetters,
   guesses,
   score,}) => {
+    
+    const [letter, setLetter] = useState("")
+    const letterInputRef = useRef(null)
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      verifyLetter(letter);
+      setLetter("");
+      letterInputRef.current.focus();
+    }
+
   return (
     <div className="game">
       <p className="points">
@@ -31,9 +43,17 @@ const Game = ({verifyLetter,
 
       <div className="letterConteiner">
         <p>Tente adivinha uma letra da palavra: </p>
-        <form>
-          <input type="text" name= "letter" maxLength="1" required/>
-          <buttom>Jogar</buttom>
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="text" 
+            name= "letter" 
+            maxLength="1" 
+            required 
+            onChange={(e) => setLetter(e.target.value)}
+            value={letter}
+            ref={letterInputRef}
+            />
+          <button>Jogar</button>
         </form>
         <div className="wrongLetters">
           <p>Letras já utilizadas:</p>

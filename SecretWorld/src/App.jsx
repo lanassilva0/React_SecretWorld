@@ -59,7 +59,7 @@ function App() {
   }
 
   //process the letter input
-  const verifyLetter = () => {
+  const verifyLetter = (letter) => {
     setGameStage(stages[2].name)
   }
 

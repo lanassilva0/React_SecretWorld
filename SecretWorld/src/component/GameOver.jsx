@@ -4,7 +4,7 @@ const GameOver = ({retry}) => {
   return (
     <div>
         <p>Game over</p>
-        <buttom onClick={retry}>Restart</buttom>
+        <button onClick={retry}>Restart</button>
     </div>
   )
 }
