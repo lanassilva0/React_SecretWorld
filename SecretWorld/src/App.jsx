@@ -29,7 +29,7 @@ function App() {
   const [letters, setLetters] = useState([])
   
   const [guessedLetters, setGuessedLetters] = useState([])
-  const [wrongLetters, setWrondLetters] = useState([])
+  const [wrongLetters, setWrongLetters] = useState([])
   const [guesses, setGuesses] = useState([])
   const [score, setScore] = useState(0)
 
@@ -60,7 +60,23 @@ function App() {
 
   //process the letter input
   const verifyLetter = (letter) => {
-    setGameStage(stages[2].name)
+    
+    const normalizedLetter = letter.toLowerCase();
+
+    if(guessedLetters.includes(normalizedLetter) || wrongLetters.includes(normalizedLetter)){
+      return;
+    }
+
+    if(letters.includes(normalizedLetter)){
+      setGuessedLetters((actualGuessedLetters) => (
+        [...actualGuessedLetters, letter]
+      ))
+    } else{
+      setWrongLetters((actualWrongLetters) => (
+        [...actualWrongLetters, letter]
+      ))
+    }
+
   }
 
   const retry = () => {
